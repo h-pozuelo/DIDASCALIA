@@ -1,0 +1,1287 @@
+$blanco: #FFFFFF
+$indigo: #004B8B
+$indigo-2: #597BA2
+$magenta: #872046
+$magenta-2: #B46574
+$negro: #000000
+$negro-2: #{$negro + 'B3'}
+$negro-3: #{$negro + '80'}
+$negro-4: #{$negro + '4D'}
+$negro-5: #{$negro + '26'}
+$small-screens: 600px
+$medium-screens: 900px
+$large-screens: 1200px
+
+*,
+*::before,
+*::after
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+    position: relative
+
+a,
+button,
+input[type='submit']
+    cursor: pointer
+    &:hover
+        text-decoration: underline !important
+
+.fila
+    width: 100%
+    height: auto
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    gap: 0
+
+.bx-wrapper
+    width: clamp(342px, 83.40vw, 1201px)
+    height: auto
+    margin: 0 auto
+    border: none
+    box-shadow: none
+    .bx-viewport
+        .slider
+            .tarjeta
+                height: 670px
+                .miniatura
+                    height: clamp(calc( 100% - 414px ), 50vw, calc( 100% - 319px ))
+                    margin-bottom: 0
+                    object-position: 50% 0
+                .contenido
+                    height: calc( 100% - clamp(calc( 100% - 414px ), 50vw, calc( 100% - 319px )) )
+                    display: flex
+                    flex-direction: column
+                    justify-content: center
+                    align-items: flex-start
+                    gap: 0
+                    padding: 0 17px
+    .bx-controls
+        .bx-pager
+            .bx-pager-item
+                .bx-pager-link
+                    width: 32px
+                    height: 2px
+                    background-color: #DCDCDC
+                    &.active
+                        background-color: $negro
+
+@media screen and (min-width: $medium-screens)
+    .bx-wrapper
+        .bx-viewport
+            height: auto !important
+            .slider
+                .tarjeta
+                    &.tarjeta-horizontal
+                        width: clamp(0px, 83.40vw, 1201px)
+                        height: 441px
+                        .miniatura
+                            display: none
+                        .contenido
+                            width: 100%
+                            height: 100%
+                            padding: 0 55px 0 24px
+                            &::after
+                                content: none
+
+@media screen and (min-width: $large-screens)
+    .bx-wrapper
+        .bx-viewport
+            .slider
+                .tarjeta
+                    &.tarjeta-horizontal
+                        .miniatura
+                            width: calc( 100% - 598px )
+                            height: 100%
+                            display: block
+                            object-position: 0 50%
+                        .contenido
+                            width: 598px
+
+.tarjeta
+    width: 100%
+    height: auto
+    .miniatura
+        width: 100%
+        // height: clamp(313px, 68.34vw, 614.3564px)
+        height: auto
+        display: block
+        margin-bottom: 32px
+        object-fit: cover
+        object-position: 50% 50%
+        aspect-ratio: 1.09 / 1
+    .contenido
+        width: 100%
+        height: auto
+        .titulo
+            color: $negro
+            font-family: 'Encode Sans', sans-serif
+            font-size: 24px
+            font-style: normal
+            font-weight: 600
+            line-height: 29px
+            text-align: left
+            margin-bottom: 24px
+        .fila
+            align-items: center
+            gap: 8px
+            margin-bottom: 16px
+            &::before
+                content: ''
+                width: 1px
+                height: 16px
+                display: block
+                background-color: $negro-3
+            &::after
+                content: url('../../images/svg/Reloj.svg')
+                width: 13px
+                height: 14px
+                display: block
+                opacity: 0.5
+            .categoria
+                color: $indigo
+                font-family: 'Encode Sans SemiExpanded', sans-serif
+                font-size: 12px
+                font-style: normal
+                font-weight: 400
+                line-height: 9px
+                text-align: center
+                width: auto
+                height: auto
+                display: block
+                padding: 5px 16px
+                border: 1px solid $indigo
+                border-radius: 48px
+                order: -1
+            .fecha
+                color: $negro-3
+                font-family: 'Encode Sans', sans-serif
+                font-size: 12px
+                font-style: normal
+                font-weight: 300
+                line-height: 15px
+                text-align: left
+                width: auto
+                height: auto
+                display: block
+                order: 1
+        .descripcion
+            color: #151515
+            font-family: 'Inter', sans-serif
+            font-size: 16px
+            font-style: normal
+            font-weight: 300
+            line-height: 22px
+            text-align: left
+            margin-bottom: 40px
+    &.tarjeta-horizontal
+        height: 100%
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+        align-items: flex-start
+        gap: 0
+        .miniatura
+            width: 50%
+            height: 100%
+            margin-bottom: 0
+            aspect-ratio: auto
+        .contenido
+            width: 50%
+            height: 100%
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: flex-start
+            gap: 0
+            padding: 0 20px
+            &::after
+                content: ''
+                width: 1px
+                height: 89.94%
+                background-color: #DCDCDC
+                position: absolute
+                top: 0
+                right: 0
+            .titulo
+                font-size: 42px
+                line-height: 50px
+            .descripcion
+                color: $negro-2
+                font-family: 'Encode Sans', sans-serif
+                font-size: 18px
+                font-weight: 400
+                line-height: 26px
+
+@media screen and (min-width: $medium-screens)
+    .tarjeta
+        .miniatura
+            aspect-ratio: 1.21 / 1
+
+.enlace
+    width: auto
+    height: auto
+    display: inline-block
+    &::after
+        content: url('../../images/svg/Flecha.svg')
+        width: auto
+        height: auto
+        display: block
+        margin-left: 8px
+        vertical-align: middle
+        float: left
+    &:has(a)::after
+        filter: invert(16%) sepia(47%) saturate(2848%) hue-rotate(312deg) brightness(97%) contrast(94%)
+    &:has(input[type='submit'])::after
+        filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(32deg) brightness(109%) contrast(102%)
+    a,
+    input[type='submit']
+        font-family: 'Encode Sans', sans-serif
+        font-size: 18px
+        font-style: normal
+        font-weight: 500
+        line-height: 22px
+        text-align: left
+        width: auto
+        height: auto
+        display: block
+        float: left
+    a
+        color: $magenta
+        text-decoration: none
+    input[type='submit']
+        color: $blanco
+        background-color: transparent
+        border: none
+
+.apartado
+    width: 100%
+    height: auto
+    .encabezado
+        width: clamp(342px, 81.875vw, 1179px)
+        height: clamp(34px, 5.56vw, 80px)
+        justify-content: space-between
+        align-items: center
+        margin: 0 auto 73px
+        border-bottom: 1px solid #{$negro + '75'}
+        &::after
+            content: ''
+            width: clamp(168px, 21.04vw, 303px)
+            height: 2px
+            background-color: $negro
+            position: absolute
+            bottom: -1px
+            left: 0
+        h2
+            color: $negro
+            font-family: 'Encode Sans', sans-serif
+            font-size: clamp(16px, 1.39vw, 20px)
+            font-style: normal
+            font-weight: 600
+            line-height: clamp(19px, 1.67vw, 24px)
+            text-align: left
+            text-transform: uppercase
+    .cuadricula
+        width: clamp(342px, 81.875vw, 1179px)
+        height: auto
+        display: flex
+        flex-direction: column
+        justify-content: flex-start
+        align-items: flex-start
+        gap: 32px
+        margin: 0 auto
+    .numeracion
+        justify-content: center
+        gap: 12px
+        margin-top: 54px
+        list-style: none
+        li
+            font-family: 'Encode Sans', sans-serif
+            font-size: 18px
+            font-style: normal
+            font-weight: 500
+            line-height: 28px
+            text-align: center
+            width: 34px
+            height: 28px
+            a
+                color: #7A7A7A
+                text-decoration: none
+                width: 100%
+                height: auto
+                display: block
+                &:hover
+                    color: $magenta
+                    text-decoration: none !important
+                    &::after
+                        content: ''
+                        width: 27px
+                        height: 1px
+                        display: block
+                        background-color: $magenta
+                        margin: 0 auto
+                        position: absolute
+                        right: 0
+                        bottom: 0
+                        left: 0
+            &:first-child,
+            &:last-child
+                a
+                    color: $magenta
+
+@media screen and (min-width: $medium-screens)
+    .apartado
+        .encabezado
+            margin-bottom: 48px
+        .cuadricula
+            display: grid
+            grid-template-columns: repeat(6, 1fr)
+            justify-content: start
+            align-items: start
+            gap: 20px
+        .numeracion
+            margin-top: 100px
+
+html,
+body
+    width: auto
+    min-width: 375px
+    max-width: 100%
+    height: auto
+    overflow-x: hidden
+
+body
+    padding-top: 63px
+
+@media screen and (min-width: $large-screens)
+    body
+        padding-top: 80px
+
+.cabecera
+    width: 100%
+    height: auto
+    background-color: $blanco
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 1
+    .fila
+        width: clamp(342px, 81.875vw, 1179px)
+        height: 63px
+        align-items: center
+        margin: 0 auto
+        .columna-izquierda
+            width: auto
+            height: auto
+            display: flex
+            flex-direction: row
+            justify-content: flex-start
+            align-items: center
+            gap: 0
+            z-index: 2
+            &::before
+                content: ''
+                width: 1px
+                height: clamp(35.93px, 2.64vw, 38px)
+                background-color: $negro
+                margin: 0 clamp(18.44px, 1.35vw, 19.50px) 0 clamp(18.10px, 1.33vw, 19.14px)
+                -webkit-transition: background-color 0.25s ease-in-out
+                -moz-transition: background-color 0.25s ease-in-out
+                -o-transition: background-color 0.25s ease-in-out
+                transition: background-color 0.25s ease-in-out
+            &.menu-abierto::before
+                background-color: $blanco
+            img
+                width: auto
+                height: clamp(22.69px, 1.67vw, 24px)
+                display: block
+                order: -1
+                -webkit-transition: filter 0.25s ease-in-out
+                -moz-transition: filter 0.25s ease-in-out
+                -o-transition: filter 0.25s ease-in-out
+                transition: filter 0.25s ease-in-out
+                &.menu-abierto
+                    filter: invert(97%) sepia(9%) saturate(2%) hue-rotate(88deg) brightness(110%) contrast(101%)
+            span
+                color: #151515
+                font-family: 'Encode Sans', sans-serif
+                font-size: clamp(16.95px, 1.24vw, 17.92px)
+                font-style: normal
+                font-weight: 600
+                line-height: clamp(21px, 1.53vw, 22px)
+                text-align: left
+                width: auto
+                height: auto
+                display: block
+                -webkit-transition: color 0.25s ease-in-out
+                -moz-transition: color 0.25s ease-in-out
+                -o-transition: color 0.25s ease-in-out
+                transition: color 0.25s ease-in-out
+                &.menu-abierto
+                    color: $blanco
+        .columna-derecha
+            width: auto
+            height: auto
+            display: flex
+            flex-direction: row
+            justify-content: flex-start
+            align-items: center
+            gap: 18px
+            margin-left: auto
+            >ul
+                width: 100%
+                height: 100%
+                background-color: $magenta
+                padding-top: 96px
+                position: fixed
+                top: 0
+                left: 0
+                -webkit-transition: opacity 0.25s ease-in-out
+                -moz-transition: opacity 0.25s ease-in-out
+                -o-transition: opacity 0.25s ease-in-out
+                transition: opacity 0.25s ease-in-out
+                opacity: 0
+                pointer-events: none
+                list-style: none
+                overflow: auto
+                z-index: 1
+                &::before
+                    content: ''
+                    width: 100%
+                    height: 100%
+                    background-color: transparent
+                    background-image: url('../../images/svg/Universidad_Camilo_Jose_Cela_Icono.svg')
+                    background-attachment: fixed
+                    background-clip: border-box
+                    background-origin: border-box
+                    background-position: calc( 50% + 24.135px ) calc( 50% + 74px )
+                    background-repeat: no-repeat
+                    background-size: clamp(1147.27px, 305.94vw, 305.94vw)
+                    position: fixed
+                    top: 0
+                    left: 0
+                    filter: invert(48%) sepia(7%) saturate(2691%) hue-rotate(298deg) brightness(94%) contrast(89%)
+                &.menu-abierto
+                    opacity: 1
+                    pointer-events: auto
+                li
+                    font-family: 'Encode Sans', sans-serif
+                    font-size: 24px
+                    font-style: normal
+                    font-weight: 400
+                    line-height: 30px
+                    text-align: left
+                    width: clamp(342px, 81.875vw, 1179px)
+                    height: auto
+                    margin: 0 auto
+                    &:not(:first-child)
+                        a
+                            border-top: 1px solid $blanco
+                    &:has(ul)
+                        >a
+                            &::after
+                                content: ''
+                                width: 12px
+                                height: 12px
+                                display: block
+                                margin: auto
+                                position: absolute
+                                top: 0
+                                right: 24px
+                                bottom: 0
+                                border-bottom: 2px solid $blanco
+                                border-right: 2px solid $blanco
+                                -webkit-transform: rotate(45deg)
+                                -moz-transform: rotate(45deg)
+                                -o-transform: rotate(45deg)
+                                transform: rotate(45deg)
+                                -webkit-transition: all 0.25s ease-in-out
+                                -moz-transition: all 0.25s ease-in-out
+                                -o-transition: all 0.25s ease-in-out
+                                transition: all 0.25s ease-in-out
+                            &.submenu-abierto
+                                &::after
+                                    top: 12px
+                                    -webkit-transform: rotate(225deg)
+                                    -moz-transform: rotate(225deg)
+                                    -o-transform: rotate(225deg)
+                                    transform: rotate(225deg)
+                        ul
+                            width: 100%
+                            height: auto
+                            display: none
+                            padding-left: 24px
+                            list-style: none
+                            overflow: hidden
+                    a
+                        color: $blanco
+                        text-decoration: none
+                        width: 100%
+                        height: auto
+                        display: block
+                        padding: 24px 0
+            form
+                input[type='search']
+                button
+                    width: 29px
+                    height: 29px
+                    display: block
+                    background-color: $blanco
+                    border: 1px solid $negro-4
+                    border-radius: 50%
+                    img
+                        width: 10.35px
+                        height: 10.35px
+                        display: block
+                        margin: auto
+                        position: absolute
+                        top: 0
+                        right: 0
+                        bottom: 0
+                        left: 0
+            >button
+                display: none
+            .boton-menu
+                width: 24.35px
+                height: 16px
+                -webkit-transform: rotate(0deg)
+                -moz-transform: rotate(0deg)
+                -o-transform: rotate(0deg)
+                transform: rotate(0deg)
+                -webkit-transition: 0.50s ease-in-out
+                -moz-transition: 0.50s ease-in-out
+                -o-transition: 0.50s ease-in-out
+                transition: 0.50s ease-in-out
+                cursor: pointer
+                z-index: 2
+                span
+                    width: 100%
+                    height: 2.67px
+                    display: block
+                    background-color: $magenta
+                    position: absolute
+                    left: 0
+                    opacity: 1
+                    -webkit-transform: rotate(0deg)
+                    -moz-transform: rotate(0deg)
+                    -o-transform: rotate(0deg)
+                    transform: rotate(0deg)
+                    -webkit-transform-origin: left center
+                    -moz-transform-origin: left center
+                    -o-transform-origin: left center
+                    transform-origin: left center
+                    -webkit-transition: 0.25s ease-in-out
+                    -moz-transition: 0.25s ease-in-out
+                    -o-transition: 0.25s ease-in-out
+                    transition: 0.25s ease-in-out
+                    &:nth-child(1)
+                        top: 0
+                    &:nth-child(2)
+                        top: 6.675px
+                    &:nth-child(3)
+                        bottom: 0
+                &.menu-abierto
+                    span
+                        background-color: $blanco
+                        &:nth-child(1)
+                            top: -1.95px
+                            left: 3.45px
+                            -webkit-transform: rotate(45deg)
+                            -moz-transform: rotate(45deg)
+                            -o-transform: rotate(45deg)
+                            transform: rotate(45deg)
+                        &:nth-child(2)
+                            width: 0%
+                            opacity: 0
+                        &:nth-child(3)
+                            bottom: -1.95px
+                            left: 3.45px
+                            -webkit-transform: rotate(-45deg)
+                            -moz-transform: rotate(-45deg)
+                            -o-transform: rotate(-45deg)
+                            transform: rotate(-45deg)
+
+@media screen and (min-width: $large-screens)
+    .cabecera
+        .fila
+            height: 80px
+            .columna-derecha
+                gap: 24px
+                >ul
+                    width: auto
+                    height: auto
+                    background-color: transparent
+                    padding-top: 0
+                    position: relative
+                    top: auto
+                    left: auto
+                    -webkit-transition: none
+                    -moz-transition: none
+                    -o-transition: none
+                    transition: none
+                    opacity: 1
+                    overflow: visible
+                    pointer-events: auto
+                    &::before
+                        content: none
+                    li
+                        font-family: 'Encode Sans', sans-serif
+                        font-size: 16px
+                        font-style: normal
+                        font-weight: 400
+                        line-height: 20px
+                        text-align: left
+                        width: auto
+                        height: auto
+                        margin: 0
+                        float: left
+                        &:not(:first-child)
+                            margin-left: 24px
+                            padding-left: 24px
+                            border-left: 1px solid $negro-3
+                            a
+                                border-top: none
+                        &:has(ul)
+                            >a
+                                padding-right: 30px
+                                &::after
+                                    width: 8px
+                                    height: 8px
+                                    right: 12px
+                                    border-width: 1px
+                                    border-color: $negro
+                                &.submenu-abierto
+                                    color: $blanco
+                                    &::before
+                                        content: ''
+                                        width: calc( 100% + 24px )
+                                        height: 41px
+                                        background-color: $magenta
+                                        margin: auto
+                                        position: absolute
+                                        top: 0
+                                        bottom: 0
+                                        left: -24px
+                                        border-radius: 6px 6px 0 0
+                                        z-index: -1
+                                    &::after
+                                        top: 8px
+                                        filter: invert(97%) sepia(9%) saturate(2%) hue-rotate(88deg) brightness(110%) contrast(101%)
+                            ul
+                                width: calc( 100% + 25% )
+                                background-color: $magenta-2
+                                padding-left: 0
+                                position: absolute
+                                top: 30.50px
+                                left: 0
+                                border-radius: 0 6px 6px 6px
+                                box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px
+                                overflow: hidden
+                                li
+                                    text-align: left
+                                    width: 100%
+                                    height: auto
+                                    display: block
+                                    background-color: transparent
+                                    margin: 0 !important
+                                    padding: 0 !important
+                                    border: none !important
+                                    clear: both
+                                    &:has(a:hover)
+                                        background-color: $magenta
+                                    a
+                                        color: $blanco
+                                        width: 100%
+                                        height: auto
+                                        display: block
+                                        background-color: transparent
+                                        margin: 0 !important
+                                        padding: 10.50px 24px !important
+                                        border: none !important
+                                        clear: both
+                        a
+                            color: #191919
+                            width: auto
+                            display: inline
+                            padding: 0
+                form
+                    button
+                        width: 41px
+                        height: 41px
+                        img
+                            width: 14.63px
+                            height: 14.63px
+                >button
+                    color: $blanco
+                    font-family: 'Encode Sans', sans-serif
+                    font-size: 18px
+                    font-style: normal
+                    font-weight: 500
+                    line-height: 22px
+                    text-align: center
+                    width: 167px
+                    height: 41px
+                    display: block
+                    background-color: $magenta
+                    border: none
+                    border-radius: 6px
+                .boton-menu
+                    display: none
+
+.banner
+    width: 100%
+    height: clamp(170.72px, 19.38vw, 279px)
+    display: flex
+    flex-flow: column
+    justify-content: center
+    align-items: center
+    gap: 0
+    background-color: $magenta
+    &:has(.contenedor.buscador)
+        height: clamp(324px, 29.58vw, 426px)
+    &::before
+        content: ''
+        width: 100%
+        height: 100%
+        background-image: url('../../images/svg/Universidad_Camilo_Jose_Cela_Icono.svg')
+        background-attachment: scroll
+        background-clip: border-box
+        background-origin: border-box
+        background-position: 50% calc( clamp(100px, 11.81vw, 170px) * -1 )
+        background-repeat: no-repeat
+        background-size: clamp(391.47px, 44.43vw, 639.75px)
+        position: absolute
+        top: 0
+        left: 0
+        filter: invert(48%) sepia(7%) saturate(2691%) hue-rotate(298deg) brightness(94%) contrast(89%)
+    .ruta
+        color: $blanco
+        font-family: 'Encode Sans', sans-serif
+        font-size: 16px
+        font-style: normal
+        font-weight: 300
+        line-height: 26px
+        text-align: left
+        width: clamp(342px, 81.875vw, 1179px)
+        height: auto
+        margin: 0 auto
+        position: absolute
+        top: 22px
+        right: 0
+        left: 0
+        opacity: 0
+        -webkit-transition: opacity 0.25s ease-in-out
+        -moz-transition: opacity 0.25s ease-in-out
+        -o-transition: opacity 0.25s ease-in-out
+        transition: opacity 0.25s ease-in-out
+    .contenedor
+        width: clamp(342px, 54.03vw, 778px)
+        height: auto
+        .titulo
+            color: $blanco
+            font-family: 'Encode Sans', sans-serif
+            font-size: clamp(40px, 4.575vw, 65.88px)
+            font-style: normal
+            font-weight: 900
+            line-height: clamp(48px, 5.49vw, 79px)
+            text-align: center
+        &.buscador
+            .titulo
+                margin-bottom: clamp(40px, 3.125vw, 45px)
+            form
+                width: 100%
+                height: auto
+                label
+                    color: $blanco
+                    font-family: 'Encode Sans', sans-serif
+                    font-size: 20px
+                    font-style: normal
+                    font-weight: 500
+                    line-height: 25px
+                    text-align: left
+                    width: 100%
+                    height: auto
+                    display: block
+                    margin-bottom: 24px
+                .fila
+                    align-items: center
+                    border-bottom: 1px solid $blanco
+                    input[type='search']
+                        color: $blanco
+                        font-family: 'Encode Sans', sans-serif
+                        font-size: clamp(24px, 3.125vw, 45px)
+                        font-style: normal
+                        font-weight: 500
+                        line-height: 58px
+                        text-align: left
+                        width: 100%
+                        height: clamp(55px, 5.35vw, 77px)
+                        background-color: transparent
+                        border: none
+                        &::placeholder
+                            color: #DCDCDC
+                            opacity: 1
+                    button[type='submit']
+                        width: 25px
+                        height: 23px
+                        display: block
+                        background-color: transparent
+                        border: none
+                        img
+                            width: 25px
+                            height: 23px
+                            display: block
+                            margin: auto
+                            position: absolute
+                            top: 0
+                            right: 0
+                            bottom: 0
+                            left: 0
+                            filter: brightness(0) saturate(100%) invert(100%) sepia(6%) saturate(350%) hue-rotate(207deg) brightness(115%) contrast(100%)
+            .mensaje
+                color: $blanco
+                font-family: 'Encode Sans', sans-serif
+                font-size: 14px
+                font-style: normal
+                font-weight: 300
+                line-height: 18px
+                text-align: left
+                position: absolute
+                bottom: calc( calc( 18px + 24px ) * -1 )
+                left: 0
+
+@media screen and (min-width: $large-screens)
+    .banner
+        .ruta
+            opacity: 1
+        .contenedor
+            &.buscador
+                form
+                    label
+                        margin-bottom: 30px
+                .mensaje
+                    bottom: calc( calc( 18px + 30px ) * -1 )
+
+.carrusel
+    width: 100%
+    height: 824px
+    background-color: $magenta
+    padding-top: 68px
+    &::before
+        content: ''
+        min-width: calc( 375px + 724px )
+        width: calc( 100% + 724px )
+        max-width: calc( 1440px + 724px )
+        height: 100%
+        background-image: url('../../images/svg/Universidad_Camilo_Jose_Cela_Icono.svg')
+        background-attachment: scroll
+        background-clip: border-box
+        background-origin: border-box
+        background-position: 0 calc( 50% - 4.50px)
+        background-repeat: no-repeat
+        background-size: 1147.27px
+        margin: 0 auto
+        position: absolute
+        top: 0
+        right: -362px
+        left: -362px
+        filter: invert(48%) sepia(7%) saturate(2691%) hue-rotate(298deg) brightness(94%) contrast(89%)
+
+@media screen and (min-width: $medium-screens)
+    .carrusel
+        height: 671px
+        padding-top: 100px
+        &::before
+            min-width: calc( 375px + 318.20px )
+            width: calc( 100% + 318.20px )
+            max-width: calc( 1440px + 318.20px )
+            background-position: 0 calc( 50% - 5.115px)
+            background-size: 953.83px
+            right: -159.10px
+            left: -159.10px
+
+.apartado-lo-mas-leido
+    padding: 73px 0 64px
+
+@media screen and (min-width: $medium-screens)
+    .apartado-lo-mas-leido
+        padding: 103px 0 86px
+        .cuadricula
+            .tarjeta
+                &:nth-child(1)
+                    grid-column: 1 / 3
+                    grid-row: 1 / 3
+                &:nth-child(2)
+                    grid-column: 3 / 5
+                    grid-row: 1 / 3
+                &:nth-child(3)
+                    grid-column: 5 / -1
+                    grid-row: 1
+                &:nth-child(4)
+                    grid-column: 5 / -1
+                    grid-row: 2
+
+.apartado-ultimas-noticias
+    background-color: #F4F4F4
+    padding: 52px 0 54px
+
+@media screen and (min-width: $medium-screens)
+    .apartado-ultimas-noticias
+        padding: 54px 0 173px
+        .cuadricula
+            .tarjeta
+                &:nth-child(1)
+                    grid-column: 1 / 4
+                    grid-row: 1
+                &:nth-child(2)
+                    grid-column: 4 / -1
+                    grid-row: 1
+                &:nth-child(3)
+                    grid-column: 1 / 3
+                    grid-row: 2 / 4
+                &:nth-child(4)
+                    grid-column: 3 / 5
+                    grid-row: 2 / 4
+                &:nth-child(5)
+                    grid-column: 5 / -1
+                    grid-row: 2
+                &:nth-child(6)
+                    grid-column: 5 / -1
+                    grid-row: 3
+
+.boletin-informativo
+    width: 100%
+    height: 533px
+    background-color: $magenta
+    padding-top: 85px
+    &::before
+        content: ''
+        min-width: calc( 375px + 250px )
+        width: calc( 100% + 250px )
+        max-width: calc( 1440px + 250px )
+        height: 100%
+        background-image: url('../../images/svg/Universidad_Camilo_Jose_Cela_Icono.svg')
+        background-attachment: scroll
+        background-clip: border-box
+        background-origin: border-box
+        background-position: 0 20px
+        background-repeat: no-repeat
+        background-size: 639.75px
+        margin: 0 auto
+        position: absolute
+        top: 0
+        right: -125px
+        left: -125px
+        filter: invert(48%) sepia(7%) saturate(2691%) hue-rotate(298deg) brightness(94%) contrast(89%)
+    form
+        width: clamp(342px, 81.875vw, 1179px)
+        height: 372px
+        margin: 0 auto
+        border-right: 1px solid $blanco
+        border-bottom: 1px solid $blanco
+        &::after
+            content: ''
+            width: calc( 100% - clamp(192px, 26.04vw, 375px) )
+            height: 1px
+            background-color: $blanco
+            position: absolute
+            top: 0
+            right: 0
+        &::before
+            content: ''
+            width: 1px
+            height: calc( 100% - clamp(38px, 8.26vw, 119px) )
+            background-color: $blanco
+            position: absolute
+            bottom: 0
+            left: 0
+        h1
+            color: $blanco
+            font-family: 'Encode Sans', sans-serif
+            font-size: clamp(24px, 3.75vw, 54px)
+            font-style: normal
+            font-weight: 600
+            line-height: clamp(29px, 4.51vw, 65px)
+            text-align: left
+            white-space: pre-line
+            position: absolute
+            top: calc( clamp(18px, 2.08vw, 30px) * -1 )
+            left: 0
+        .contenedor
+            width: clamp(calc( 297px + 44px ), calc( 27.08vw + 44px ), calc( 390px + 44px ))
+            height: 100%
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: flex-start
+            gap: 0
+            margin: 0 auto
+            padding: 0 22px
+            p
+                color: $blanco
+                font-family: 'Encode Sans', sans-serif
+                font-size: clamp(13.71px, 1.25vw, 18px)
+                font-style: normal
+                font-weight: 500
+                line-height: clamp(17px, 1.53vw, 22px)
+                text-align: left
+                text-transform: uppercase
+                margin-bottom: clamp(27px, 2.36vw, 34px)
+            h2
+                color: $blanco
+                font-family: 'Encode Sans', sans-serif
+                font-size: 18px
+                font-style: normal
+                font-weight: 700
+                line-height: 22px
+                text-align: left
+                margin-bottom: 14px
+            input[type='email']
+                color: $negro
+                font-family: 'Encode Sans', sans-serif
+                font-size: 14px
+                font-style: normal
+                font-weight: 400
+                line-height: 22px
+                text-align: left
+                width: clamp(296px, 26.11vw, 376px)
+                height: 40px
+                display: block
+                background-color: $blanco
+                margin-bottom: clamp(16px, 2.43vw, 35px)
+                padding: 9px 16px
+                border: none
+                border-radius: 10px
+            .fila
+                flex-direction: column
+                gap: 25px
+                .columna-izquierda
+                    width: 100%
+                    height: auto
+                    display: flex
+                    flex-flow: row
+                    justify-content: flex-start
+                    align-items: center
+                    gap: 4px
+                    input[type='checkbox']
+                        width: 16px
+                        height: 16px
+                        visibility: hidden
+                        &::after
+                            content: ''
+                            width: 16px
+                            height: 16px
+                            background-color: transparent
+                            position: absolute
+                            top: 0
+                            left: 0
+                            border: 1px solid $blanco
+                            border-radius: 2px
+                            visibility: visible
+                        &:checked
+                            &::after
+                                content: '\2713'
+                                color: $blanco
+                                font-family: 'Encode Sans', sans-serif
+                                font-size: 14px
+                                font-style: normal
+                                font-weight: 600
+                                line-height: 22px
+                                text-align: center
+                                display: flex
+                                flex-flow: row
+                                justify-content: center
+                                align-items: center
+                                gap: 0
+                    label
+                        color: $blanco
+                        font-family: 'Encode Sans', sans-serif
+                        font-size: 14px
+                        font-style: normal
+                        font-weight: 400
+                        line-height: 22px
+                        text-align: left
+                        a
+                            color: $blanco
+                .columna-derecha
+                    width: 100%
+                    height: auto
+                    .enlace
+                        position: absolute
+                        right: 0
+
+@media screen and (min-width: $small-screens)
+    .boletin-informativo
+        form
+            .contenedor
+                margin: 0 clamp(0px, 11.74vw, 169px) 0 auto
+
+@media screen and (min-width: $medium-screens)
+    .boletin-informativo
+        height: 473px
+        form
+            height: 332px
+            .contenedor
+                margin: 0 clamp(0px, 11.74vw, 169px) 0 auto
+
+@media screen and (min-width: $large-screens)
+    .boletin-informativo
+        form
+            .contenedor
+                .fila
+                    flex-direction: row
+                    justify-content: space-between
+                    gap: 0
+                    .columna-izquierda
+                        width: auto
+                    .columna-derecha
+                        width: auto
+                        .enlace
+                            position: relative
+                            right: auto
+
+.apartado-pedagogia
+    padding: 54px 0 48px
+
+@media screen and (min-width: $medium-screens)
+    .apartado-pedagogia
+        padding: 54px 0 104px
+        .encabezado
+            margin-bottom: 68px
+        .cuadricula
+            .tarjeta
+                &:nth-child(1)
+                    grid-column: 1 / 5
+                    grid-row: 1
+                &:nth-child(2)
+                    grid-column: 5 / -1
+                    grid-row: 1
+
+.pie
+    width: 100%
+    height: auto
+    background-color: $magenta
+    .fila
+        &.fila-superior
+            width: clamp(342px, 88.61vw, 1276px)
+            height: 313px
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            margin: 0 auto
+            &::before
+                content: ''
+                width: 226px
+                height: 1px
+                background-color: $blanco
+                margin: 35.03px 0 28px
+                opacity: 0.46
+            .columna-izquierda
+                width: auto
+                height: auto
+                display: flex
+                flex-direction: row
+                justify-content: flex-start
+                align-items: center
+                gap: 0
+                order: -1
+                &::before
+                    content: ''
+                    width: 1px
+                    height: clamp(48.97px, 4.16vw, 59.94px)
+                    background-color: $blanco
+                    margin: 0 clamp(25.13px, 2.14vw, 30.76px) 0 clamp(24.66px, 2.10vw, 30.19px)
+                img
+                    width: auto
+                    height: clamp(30.93px, 2.63vw, 37.86px)
+                    display: block
+                    order: -1
+                    filter: invert(97%) sepia(9%) saturate(2%) hue-rotate(88deg) brightness(110%) contrast(101%)
+                span
+                    color: $blanco
+                    font-family: 'Encode Sans', sans-serif
+                    font-size: clamp(23.09px, 1.96vw, 28.27px)
+                    font-style: normal
+                    font-weight: 600
+                    line-height: clamp(29px, 2.43vw, 35px)
+                    text-align: left
+                    width: auto
+                    height: auto
+                    display: block
+            .columna-derecha
+                width: auto
+                height: auto
+                ul
+                    width: auto
+                    height: auto
+                    display: flex
+                    flex-direction: column
+                    justify-content: flex-start
+                    align-items: center
+                    gap: 32px
+                    list-style: none
+                    li
+                        font-family: Arial, Helvetica, sans-serif
+                        font-size: 14px
+                        font-style: normal
+                        font-weight: 350
+                        line-height: 17px
+                        text-align: center
+                        a
+                            color: $blanco
+                            text-decoration: none
+        &.fila-inferior
+            background-color: $negro
+            ul
+                width: clamp(342px, 88.61vw, 1276px)
+                height: 64px
+                display: flex
+                flex-direction: row
+                justify-content: center
+                align-items: center
+                gap: 49px
+                margin: 0 auto
+                list-style: none
+                li
+                    font-family: Arial, Helvetica, sans-serif
+                    font-size: 10px
+                    font-style: normal
+                    font-weight: 350
+                    line-height: 12px
+                    text-align: left
+                    a
+                        color: $blanco
+                        text-decoration: none
+
+@media screen and (min-width: $medium-screens)
+    .pie
+        .fila
+            &.fila-superior
+                height: 147px
+                flex-direction: row
+                justify-content: flex-start
+                &::before
+                    content: none
+                .columna-derecha
+                    margin-left: auto
+                    ul
+                        flex-direction: row
+                        gap: 0
+                        li
+                            font-size: 16px
+                            line-height: 19px
+                            text-align: left
+                            &:not(:last-child)
+                                &::after
+                                    content: ''
+                                    width: 1px
+                                    height: 32px
+                                    display: inline-block
+                                    background-color: #979797
+                                    margin: 0 24px
+                                    vertical-align: middle
+            &.fila-inferior
+                ul
+                    justify-content: flex-end

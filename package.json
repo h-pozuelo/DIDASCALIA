@@ -1,0 +1,11 @@
+{
+  "name": "didascalia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w assets/styles/scss/ -o assets/styles/css/ --recursive"
+  },
+  "author": "",
+  "license": "ISC"
+}

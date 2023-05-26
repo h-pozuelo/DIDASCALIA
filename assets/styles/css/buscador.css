@@ -1,0 +1,9 @@
+.apartado-buscador {
+  padding: 54px 0; }
+
+@media screen and (min-width: 900px) {
+  .apartado-buscador {
+    padding: 86px 0 48px; }
+    .apartado-buscador .cuadricula {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px 30.50px; } }
