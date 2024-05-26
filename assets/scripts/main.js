@@ -32,7 +32,7 @@ $(document).ready(function () {
     });
 
     $('.cabecera .fila .columna-izquierda, .pie .fila.fila-superior .columna-izquierda').on('click', function () {
-        window.location.href = '../home.html';
+        window.location.href = 'home.html';
     });
 
     $('.cabecera .fila .columna-derecha ul li:has(ul) > a').on('click', function () {
